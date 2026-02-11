@@ -11,7 +11,10 @@ import { DashboardHome } from "@/components/dashboard/DashboardHome";
 import { UniversalIdSearch } from "@/components/vet/UniversalIdSearch";
 import { QuickConsultation } from "@/components/vet/QuickConsultation";
 import { CSVImport } from "@/components/vet/CSVImport";
+import { GoldenTickets } from "@/components/vet/GoldenTickets";
 import { AlertsFeed } from "@/components/tutor/AlertsFeed";
+import { DigitalVault } from "@/components/tutor/DigitalVault";
+import { PlansPage } from "@/components/subscription/PlansPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -31,7 +34,10 @@ const App = () => (
               <Route path="search" element={<UniversalIdSearch />} />
               <Route path="consultation" element={<QuickConsultation />} />
               <Route path="import" element={<CSVImport />} />
+              <Route path="golden-tickets" element={<GoldenTickets />} />
               <Route path="alerts" element={<AlertsFeed />} />
+              <Route path="documents" element={<DigitalVault />} />
+              <Route path="plans" element={<PlansPage />} />
               <Route path="*" element={<DashboardHome />} />
             </Route>
             <Route path="*" element={<NotFound />} />

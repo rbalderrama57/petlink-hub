@@ -1,6 +1,6 @@
 import type { MockPetData, Alert } from '@/types';
 
-// Mock database for Universal ID search
+// Mock database for Universal ID search (SinPatinhas / ISO 11784/11785)
 export const mockPetDatabase: Record<string, MockPetData> = {
   '123456789012345': {
     name: 'Thor',
@@ -31,6 +31,18 @@ export const mockPetDatabase: Record<string, MockPetData> = {
     species: 'dog',
     breed: 'Bulldog Francês',
     birth_date: '2023-02-14',
+  },
+  '900100200300400': {
+    name: 'Mel',
+    species: 'dog',
+    breed: 'Poodle',
+    birth_date: '2021-07-22',
+  },
+  'RGA-MG-009012': {
+    name: 'Simba',
+    species: 'cat',
+    breed: 'Maine Coon',
+    birth_date: '2020-11-03',
   },
 };
 

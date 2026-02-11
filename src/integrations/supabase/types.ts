@@ -158,6 +158,47 @@ export type Database = {
           },
         ]
       }
+      golden_tickets: {
+        Row: {
+          code: string
+          created_at: string
+          created_by: string
+          expires_at: string | null
+          id: string
+          is_redeemed: boolean
+          plan_id: string
+          redeemed_by: string | null
+        }
+        Insert: {
+          code: string
+          created_at?: string
+          created_by: string
+          expires_at?: string | null
+          id?: string
+          is_redeemed?: boolean
+          plan_id: string
+          redeemed_by?: string | null
+        }
+        Update: {
+          code?: string
+          created_at?: string
+          created_by?: string
+          expires_at?: string | null
+          id?: string
+          is_redeemed?: boolean
+          plan_id?: string
+          redeemed_by?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "golden_tickets_plan_id_fkey"
+            columns: ["plan_id"]
+            isOneToOne: false
+            referencedRelation: "subscription_plans"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       pets: {
         Row: {
           avatar_url: string | null
@@ -168,6 +209,7 @@ export type Database = {
           microchip_id: string | null
           name: string
           notes: string | null
+          registration_source: string
           rga_id: string | null
           species: Database["public"]["Enums"]["pet_species"]
           tutor_id: string
@@ -183,6 +225,7 @@ export type Database = {
           microchip_id?: string | null
           name: string
           notes?: string | null
+          registration_source?: string
           rga_id?: string | null
           species?: Database["public"]["Enums"]["pet_species"]
           tutor_id: string
@@ -198,6 +241,7 @@ export type Database = {
           microchip_id?: string | null
           name?: string
           notes?: string | null
+          registration_source?: string
           rga_id?: string | null
           species?: Database["public"]["Enums"]["pet_species"]
           tutor_id?: string
@@ -253,6 +297,89 @@ export type Database = {
           role?: Database["public"]["Enums"]["user_role"]
           updated_at?: string
           user_id?: string
+        }
+        Relationships: []
+      }
+      subscription_ledger: {
+        Row: {
+          created_at: string
+          early_adopter_number: number | null
+          expires_at: string | null
+          id: string
+          is_early_adopter: boolean
+          plan_id: string
+          started_at: string
+          status: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          early_adopter_number?: number | null
+          expires_at?: string | null
+          id?: string
+          is_early_adopter?: boolean
+          plan_id: string
+          started_at?: string
+          status?: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          early_adopter_number?: number | null
+          expires_at?: string | null
+          id?: string
+          is_early_adopter?: boolean
+          plan_id?: string
+          started_at?: string
+          status?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "subscription_ledger_plan_id_fkey"
+            columns: ["plan_id"]
+            isOneToOne: false
+            referencedRelation: "subscription_plans"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      subscription_plans: {
+        Row: {
+          created_at: string
+          features: Json | null
+          id: string
+          interval: string
+          is_active: boolean
+          name: string
+          plan_type: string
+          price_cents: number
+          slug: string
+        }
+        Insert: {
+          created_at?: string
+          features?: Json | null
+          id?: string
+          interval?: string
+          is_active?: boolean
+          name: string
+          plan_type?: string
+          price_cents?: number
+          slug: string
+        }
+        Update: {
+          created_at?: string
+          features?: Json | null
+          id?: string
+          interval?: string
+          is_active?: boolean
+          name?: string
+          plan_type?: string
+          price_cents?: number
+          slug?: string
         }
         Relationships: []
       }

@@ -18,6 +18,8 @@ import {
   Upload,
   Stethoscope,
   Heart,
+  Ticket,
+  CreditCard,
 } from 'lucide-react';
 import { Logo } from '@/components/ui/Logo';
 import { useAuth } from '@/hooks/useAuth';
@@ -35,10 +37,12 @@ export function Sidebar({ userRole }: SidebarProps) {
   const vetMenuItems = [
     { icon: LayoutDashboard, label: 'Dashboard', path: '/dashboard' },
     { icon: Users, label: 'Pacientes', path: '/dashboard/patients' },
-    { icon: Search, label: 'Buscar ID Universal', path: '/dashboard/search' },
+    { icon: Search, label: 'Identidade Universal', path: '/dashboard/search' },
     { icon: Stethoscope, label: 'Nova Consulta', path: '/dashboard/consultation' },
-    { icon: Upload, label: 'Importar CSV', path: '/dashboard/import' },
+    { icon: Upload, label: 'Importação Mágica', path: '/dashboard/import' },
+    { icon: Ticket, label: 'Golden Tickets', path: '/dashboard/golden-tickets' },
     { icon: CalendarDays, label: 'Agenda', path: '/dashboard/schedule' },
+    { icon: CreditCard, label: 'Planos', path: '/dashboard/plans' },
   ];
 
   const tutorMenuItems = [
@@ -48,6 +52,7 @@ export function Sidebar({ userRole }: SidebarProps) {
     { icon: FolderOpen, label: 'Cofre Digital', path: '/dashboard/documents' },
     { icon: Bell, label: 'Alertas', path: '/dashboard/alerts' },
     { icon: FileText, label: 'Histórico', path: '/dashboard/history' },
+    { icon: CreditCard, label: 'Planos', path: '/dashboard/plans' },
   ];
 
   const menuItems = userRole === 'vet' ? vetMenuItems : tutorMenuItems;
