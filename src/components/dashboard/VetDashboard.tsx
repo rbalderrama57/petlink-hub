@@ -8,11 +8,11 @@ import {
   Search,
   Plus,
   ArrowRight,
-  FileSpreadsheet,
   Activity,
   Syringe,
-  ClipboardList,
   UserPlus,
+  Ticket,
+  Sparkles,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
@@ -109,8 +109,8 @@ export function VetDashboard() {
           onClick={() => navigate('/dashboard/import')}
           className="p-4 rounded-2xl bg-card border border-border hover:border-primary/50 transition-colors"
         >
-          <FileSpreadsheet className="w-6 h-6 mb-2 text-primary" />
-          <span className="font-semibold text-foreground">Importar CSV</span>
+          <Sparkles className="w-6 h-6 mb-2 text-primary" />
+          <span className="font-semibold text-foreground">Importação Mágica</span>
         </motion.button>
 
         <motion.button
@@ -266,7 +266,14 @@ export function VetDashboard() {
                 className="w-full flex items-center gap-3 p-3 rounded-xl hover:bg-secondary/50 transition-colors text-left"
               >
                 <UserPlus className="w-5 h-5 text-muted-foreground" />
-                <span className="text-foreground">Importar Pacientes</span>
+                <span className="text-foreground">Importação Mágica</span>
+              </button>
+              <button 
+                onClick={() => navigate('/dashboard/golden-tickets')}
+                className="w-full flex items-center gap-3 p-3 rounded-xl hover:bg-secondary/50 transition-colors text-left"
+              >
+                <Ticket className="w-5 h-5 text-muted-foreground" />
+                <span className="text-foreground">Golden Tickets</span>
               </button>
             </div>
           </Card>
