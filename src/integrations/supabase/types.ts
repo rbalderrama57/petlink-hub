@@ -268,6 +268,7 @@ export type Database = {
           notes: string | null
           registration_source: string
           rga_id: string | null
+          sex: string | null
           species: Database["public"]["Enums"]["pet_species"]
           tutor_id: string
           updated_at: string
@@ -284,6 +285,7 @@ export type Database = {
           notes?: string | null
           registration_source?: string
           rga_id?: string | null
+          sex?: string | null
           species?: Database["public"]["Enums"]["pet_species"]
           tutor_id: string
           updated_at?: string
@@ -300,6 +302,7 @@ export type Database = {
           notes?: string | null
           registration_source?: string
           rga_id?: string | null
+          sex?: string | null
           species?: Database["public"]["Enums"]["pet_species"]
           tutor_id?: string
           updated_at?: string

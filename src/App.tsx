@@ -17,6 +17,10 @@ import { GoldenTickets } from "@/components/vet/GoldenTickets";
 import { AlertsFeed } from "@/components/tutor/AlertsFeed";
 import { DigitalVault } from "@/components/tutor/DigitalVault";
 import { PlansPage } from "@/components/subscription/PlansPage";
+import { TutorLayout } from "@/pages/tutor/TutorLayout";
+import { TutorDashboardPage } from "@/pages/tutor/TutorDashboardPage";
+import { TutorPetsPage } from "@/pages/tutor/TutorPetsPage";
+import { TutorCofrePage } from "@/pages/tutor/TutorCofrePage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -34,6 +38,16 @@ const App = () => (
             <Route path="/auth" element={<AuthPage />} />
             <Route path="/planos/tutor" element={<PlanosTutor />} />
             <Route path="/planos/veterinario" element={<PlanosVeterinario />} />
+
+            {/* Tutor Area */}
+            <Route path="/app/tutor" element={<TutorLayout />}>
+              <Route index element={<TutorDashboardPage />} />
+              <Route path="dashboard" element={<TutorDashboardPage />} />
+              <Route path="pets" element={<TutorPetsPage />} />
+              <Route path="cofre" element={<TutorCofrePage />} />
+            </Route>
+
+            {/* Legacy dashboard (vet + fallback) */}
             <Route path="/dashboard" element={<DashboardLayout />}>
               <Route index element={<DashboardHome />} />
               <Route path="search" element={<UniversalIdSearch />} />
@@ -45,6 +59,7 @@ const App = () => (
               <Route path="plans" element={<PlansPage />} />
               <Route path="*" element={<DashboardHome />} />
             </Route>
+
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
