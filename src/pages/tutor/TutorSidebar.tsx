@@ -5,12 +5,15 @@ import {
   LayoutDashboard,
   PawPrint,
   FolderOpen,
-  Settings,
   LogOut,
   ChevronLeft,
   ChevronRight,
   Heart,
   CreditCard,
+  Syringe,
+  Pill,
+  FileText,
+  Bell,
 } from 'lucide-react';
 import { Logo } from '@/components/ui/Logo';
 import { useAuth } from '@/hooks/useAuth';
@@ -19,6 +22,10 @@ import { cn } from '@/lib/utils';
 const menuItems = [
   { icon: LayoutDashboard, label: 'Dashboard', path: '/app/tutor/dashboard' },
   { icon: PawPrint, label: 'Meus Pets', path: '/app/tutor/pets' },
+  { icon: Syringe, label: 'Vacinas', path: '/app/tutor/vacinas' },
+  { icon: Pill, label: 'Receitas', path: '/app/tutor/receitas' },
+  { icon: FileText, label: 'Documentos', path: '/app/tutor/documentos' },
+  { icon: Bell, label: 'Lembretes', path: '/app/tutor/lembretes' },
   { icon: FolderOpen, label: 'Cofre Digital', path: '/app/tutor/cofre' },
   { icon: CreditCard, label: 'Planos', path: '/planos/tutor' },
 ];

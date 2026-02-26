@@ -21,6 +21,10 @@ import { TutorLayout } from "@/pages/tutor/TutorLayout";
 import { TutorDashboardPage } from "@/pages/tutor/TutorDashboardPage";
 import { TutorPetsPage } from "@/pages/tutor/TutorPetsPage";
 import { TutorCofrePage } from "@/pages/tutor/TutorCofrePage";
+import { TutorVacinasPage } from "@/pages/tutor/TutorVacinasPage";
+import { TutorReceitasPage } from "@/pages/tutor/TutorReceitasPage";
+import { TutorDocumentosPage } from "@/pages/tutor/TutorDocumentosPage";
+import { TutorLembretesPage } from "@/pages/tutor/TutorLembretesPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -45,6 +49,10 @@ const App = () => (
               <Route path="dashboard" element={<TutorDashboardPage />} />
               <Route path="pets" element={<TutorPetsPage />} />
               <Route path="cofre" element={<TutorCofrePage />} />
+              <Route path="vacinas" element={<TutorVacinasPage />} />
+              <Route path="receitas" element={<TutorReceitasPage />} />
+              <Route path="documentos" element={<TutorDocumentosPage />} />
+              <Route path="lembretes" element={<TutorLembretesPage />} />
             </Route>
 
             {/* Legacy dashboard (vet + fallback) */}
