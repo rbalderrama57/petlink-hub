@@ -37,11 +37,11 @@ export function Logo({ size = 'md', showText = true }: LogoProps) {
       </div>
       {showText && (
         <div className="flex flex-col">
-          <span className={`${sizes[size].text} font-bold gradient-text leading-none`}>
-            Ampet
+          <span className={`${sizes[size].text} font-display font-bold gradient-text leading-none`}>
+            AMPET
           </span>
           <span className="text-[10px] text-muted-foreground tracking-widest uppercase">
-            Pet Health Hub
+            Cofre Digital para Pets
           </span>
         </div>
       )}
