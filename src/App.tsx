@@ -25,6 +25,9 @@ import { TutorVacinasPage } from "@/pages/tutor/TutorVacinasPage";
 import { TutorReceitasPage } from "@/pages/tutor/TutorReceitasPage";
 import { TutorDocumentosPage } from "@/pages/tutor/TutorDocumentosPage";
 import { TutorLembretesPage } from "@/pages/tutor/TutorLembretesPage";
+import { VetLayout } from "@/pages/vet/VetLayout";
+import { VetDashboardPage } from "@/pages/vet/VetDashboardPage";
+import { VetClientesPage } from "@/pages/vet/VetClientesPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -53,6 +56,13 @@ const App = () => (
               <Route path="receitas" element={<TutorReceitasPage />} />
               <Route path="documentos" element={<TutorDocumentosPage />} />
               <Route path="lembretes" element={<TutorLembretesPage />} />
+            </Route>
+
+            {/* Vet Area */}
+            <Route path="/app/vet" element={<VetLayout />}>
+              <Route index element={<VetDashboardPage />} />
+              <Route path="dashboard" element={<VetDashboardPage />} />
+              <Route path="clientes" element={<VetClientesPage />} />
             </Route>
 
             {/* Legacy dashboard (vet + fallback) */}
