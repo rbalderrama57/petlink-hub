@@ -9,6 +9,9 @@ import {
   ChevronRight,
   Stethoscope,
   CreditCard,
+  Pill,
+  Bug,
+  Cpu,
 } from 'lucide-react';
 import { Logo } from '@/components/ui/Logo';
 import { useAuth } from '@/hooks/useAuth';
@@ -17,6 +20,9 @@ import { cn } from '@/lib/utils';
 const menuItems = [
   { icon: LayoutDashboard, label: 'Dashboard', path: '/app/vet/dashboard' },
   { icon: Users, label: 'Clientes', path: '/app/vet/clientes' },
+  { icon: Pill, label: 'Receitas', path: '/app/vet/receitas' },
+  { icon: Bug, label: 'Zoonoses', path: '/app/vet/zoonoses' },
+  { icon: Cpu, label: 'Microchip', path: '/app/vet/microchip' },
   { icon: CreditCard, label: 'Planos', path: '/planos/veterinario' },
 ];
 
