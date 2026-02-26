@@ -28,6 +28,9 @@ import { TutorLembretesPage } from "@/pages/tutor/TutorLembretesPage";
 import { VetLayout } from "@/pages/vet/VetLayout";
 import { VetDashboardPage } from "@/pages/vet/VetDashboardPage";
 import { VetClientesPage } from "@/pages/vet/VetClientesPage";
+import { VetReceitasPage } from "@/pages/vet/VetReceitasPage";
+import { VetZoonosesPage } from "@/pages/vet/VetZoonosesPage";
+import { VetMicrochipPage } from "@/pages/vet/VetMicrochipPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -63,6 +66,9 @@ const App = () => (
               <Route index element={<VetDashboardPage />} />
               <Route path="dashboard" element={<VetDashboardPage />} />
               <Route path="clientes" element={<VetClientesPage />} />
+              <Route path="receitas" element={<VetReceitasPage />} />
+              <Route path="zoonoses" element={<VetZoonosesPage />} />
+              <Route path="microchip" element={<VetMicrochipPage />} />
             </Route>
 
             {/* Legacy dashboard (vet + fallback) */}
