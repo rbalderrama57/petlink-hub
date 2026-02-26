@@ -165,9 +165,11 @@ export type Database = {
           created_by: string
           expires_at: string | null
           id: string
+          invited_email: string | null
           is_redeemed: boolean
           plan_id: string
           redeemed_by: string | null
+          status: string
         }
         Insert: {
           code: string
@@ -175,9 +177,11 @@ export type Database = {
           created_by: string
           expires_at?: string | null
           id?: string
+          invited_email?: string | null
           is_redeemed?: boolean
           plan_id: string
           redeemed_by?: string | null
+          status?: string
         }
         Update: {
           code?: string
@@ -185,9 +189,11 @@ export type Database = {
           created_by?: string
           expires_at?: string | null
           id?: string
+          invited_email?: string | null
           is_redeemed?: boolean
           plan_id?: string
           redeemed_by?: string | null
+          status?: string
         }
         Relationships: [
           {
@@ -195,6 +201,57 @@ export type Database = {
             columns: ["plan_id"]
             isOneToOne: false
             referencedRelation: "subscription_plans"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      medical_records: {
+        Row: {
+          attachments: Json | null
+          created_at: string
+          date: string
+          description: string | null
+          id: string
+          pet_id: string
+          type: string
+          updated_at: string
+          vet_id: string | null
+        }
+        Insert: {
+          attachments?: Json | null
+          created_at?: string
+          date?: string
+          description?: string | null
+          id?: string
+          pet_id: string
+          type?: string
+          updated_at?: string
+          vet_id?: string | null
+        }
+        Update: {
+          attachments?: Json | null
+          created_at?: string
+          date?: string
+          description?: string | null
+          id?: string
+          pet_id?: string
+          type?: string
+          updated_at?: string
+          vet_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "medical_records_pet_id_fkey"
+            columns: ["pet_id"]
+            isOneToOne: false
+            referencedRelation: "pets"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "medical_records_vet_id_fkey"
+            columns: ["vet_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
             referencedColumns: ["id"]
           },
         ]
@@ -252,6 +309,60 @@ export type Database = {
           {
             foreignKeyName: "pets_tutor_id_fkey"
             columns: ["tutor_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      prescriptions: {
+        Row: {
+          created_at: string
+          date: string
+          diagnosis: string | null
+          id: string
+          instructions: string | null
+          medications: Json | null
+          pet_id: string
+          updated_at: string
+          valid_until: string | null
+          vet_id: string | null
+        }
+        Insert: {
+          created_at?: string
+          date?: string
+          diagnosis?: string | null
+          id?: string
+          instructions?: string | null
+          medications?: Json | null
+          pet_id: string
+          updated_at?: string
+          valid_until?: string | null
+          vet_id?: string | null
+        }
+        Update: {
+          created_at?: string
+          date?: string
+          diagnosis?: string | null
+          id?: string
+          instructions?: string | null
+          medications?: Json | null
+          pet_id?: string
+          updated_at?: string
+          valid_until?: string | null
+          vet_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "prescriptions_pet_id_fkey"
+            columns: ["pet_id"]
+            isOneToOne: false
+            referencedRelation: "pets"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "prescriptions_vet_id_fkey"
+            columns: ["vet_id"]
             isOneToOne: false
             referencedRelation: "profiles"
             referencedColumns: ["id"]
@@ -436,6 +547,60 @@ export type Database = {
             columns: ["vet_id"]
             isOneToOne: false
             referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      zoonosis_cases: {
+        Row: {
+          clinic_id: string | null
+          created_at: string
+          date: string
+          id: string
+          latitude: number | null
+          longitude: number | null
+          notified: boolean
+          pet_id: string | null
+          type: string
+          zipcode: string | null
+        }
+        Insert: {
+          clinic_id?: string | null
+          created_at?: string
+          date?: string
+          id?: string
+          latitude?: number | null
+          longitude?: number | null
+          notified?: boolean
+          pet_id?: string | null
+          type: string
+          zipcode?: string | null
+        }
+        Update: {
+          clinic_id?: string | null
+          created_at?: string
+          date?: string
+          id?: string
+          latitude?: number | null
+          longitude?: number | null
+          notified?: boolean
+          pet_id?: string | null
+          type?: string
+          zipcode?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "zoonosis_cases_clinic_id_fkey"
+            columns: ["clinic_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "zoonosis_cases_pet_id_fkey"
+            columns: ["pet_id"]
+            isOneToOne: false
+            referencedRelation: "pets"
             referencedColumns: ["id"]
           },
         ]
