@@ -105,9 +105,19 @@ export function LandingPage() {
                 Começar Agora
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
-              <Button onClick={() => navigate('/planos/veterinario')} size="lg" variant="outline" className="text-lg px-10 h-14 rounded-full border-border/50">
-                Sou Veterinário
-                <Stethoscope className="w-5 h-5 ml-2" />
+              <Button onClick={async () => {
+                try {
+                  const { supabase } = await import('@/integrations/supabase/client');
+                  const { error } = await supabase.auth.signInWithPassword({ email: 'demo@ampet.com.br', password: 'demo123456' });
+                  if (error) {
+                    navigate('/login');
+                  } else {
+                    navigate('/app/tutor/dashboard');
+                  }
+                } catch { navigate('/login'); }
+              }} size="lg" variant="outline" className="text-lg px-10 h-14 rounded-full border-border/50">
+                Ver Demo
+                <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
             </motion.div>
           </motion.div>
