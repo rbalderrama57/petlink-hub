@@ -8,15 +8,6 @@ import { LandingPage } from "@/pages/LandingPage";
 import { AuthPage } from "@/components/auth/AuthPage";
 import { PlanosTutor } from "@/pages/PlanosTutor";
 import { PlanosVeterinario } from "@/pages/PlanosVeterinario";
-import { DashboardLayout } from "@/components/dashboard/DashboardLayout";
-import { DashboardHome } from "@/components/dashboard/DashboardHome";
-import { UniversalIdSearch } from "@/components/vet/UniversalIdSearch";
-import { QuickConsultation } from "@/components/vet/QuickConsultation";
-import { CSVImport } from "@/components/vet/CSVImport";
-import { GoldenTickets } from "@/components/vet/GoldenTickets";
-import { AlertsFeed } from "@/components/tutor/AlertsFeed";
-import { DigitalVault } from "@/components/tutor/DigitalVault";
-import { PlansPage } from "@/components/subscription/PlansPage";
 import { TutorLayout } from "@/pages/tutor/TutorLayout";
 import { TutorDashboardPage } from "@/pages/tutor/TutorDashboardPage";
 import { TutorPetsPage } from "@/pages/tutor/TutorPetsPage";
@@ -31,6 +22,8 @@ import { VetClientesPage } from "@/pages/vet/VetClientesPage";
 import { VetReceitasPage } from "@/pages/vet/VetReceitasPage";
 import { VetZoonosesPage } from "@/pages/vet/VetZoonosesPage";
 import { VetMicrochipPage } from "@/pages/vet/VetMicrochipPage";
+import { VetImportacaoPage } from "@/pages/vet/VetImportacaoPage";
+import { VetGoldenTicketsPage } from "@/pages/vet/VetGoldenTicketsPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -69,19 +62,8 @@ const App = () => (
               <Route path="receitas" element={<VetReceitasPage />} />
               <Route path="zoonoses" element={<VetZoonosesPage />} />
               <Route path="microchip" element={<VetMicrochipPage />} />
-            </Route>
-
-            {/* Legacy dashboard (vet + fallback) */}
-            <Route path="/dashboard" element={<DashboardLayout />}>
-              <Route index element={<DashboardHome />} />
-              <Route path="search" element={<UniversalIdSearch />} />
-              <Route path="consultation" element={<QuickConsultation />} />
-              <Route path="import" element={<CSVImport />} />
-              <Route path="golden-tickets" element={<GoldenTickets />} />
-              <Route path="alerts" element={<AlertsFeed />} />
-              <Route path="documents" element={<DigitalVault />} />
-              <Route path="plans" element={<PlansPage />} />
-              <Route path="*" element={<DashboardHome />} />
+              <Route path="importacao" element={<VetImportacaoPage />} />
+              <Route path="golden-tickets" element={<VetGoldenTicketsPage />} />
             </Route>
 
             <Route path="*" element={<NotFound />} />

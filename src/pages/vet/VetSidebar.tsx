@@ -12,6 +12,8 @@ import {
   Pill,
   Bug,
   Cpu,
+  Upload,
+  Ticket,
 } from 'lucide-react';
 import { Logo } from '@/components/ui/Logo';
 import { useAuth } from '@/hooks/useAuth';
@@ -23,6 +25,8 @@ const menuItems = [
   { icon: Pill, label: 'Receitas', path: '/app/vet/receitas' },
   { icon: Bug, label: 'Zoonoses', path: '/app/vet/zoonoses' },
   { icon: Cpu, label: 'Microchip', path: '/app/vet/microchip' },
+  { icon: Upload, label: 'Importação', path: '/app/vet/importacao' },
+  { icon: Ticket, label: 'Golden Tickets', path: '/app/vet/golden-tickets' },
   { icon: CreditCard, label: 'Planos', path: '/planos/veterinario' },
 ];
 

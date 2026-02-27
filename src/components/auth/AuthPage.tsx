@@ -32,15 +32,15 @@ export function AuthPage() {
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
   
-  const { signIn, signUp, user } = useAuth();
+  const { signIn, signUp, user, profile } = useAuth();
   const { toast } = useToast();
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (user) {
-      navigate('/dashboard');
+    if (user && profile) {
+      navigate(profile.role === 'vet' ? '/app/vet/dashboard' : '/app/tutor/dashboard');
     }
-  }, [user, navigate]);
+  }, [user, profile, navigate]);
 
   const validateForm = () => {
     try {
@@ -102,7 +102,7 @@ export function AuthPage() {
             title: 'Bem-vindo de volta!',
             description: 'Login realizado com sucesso.',
           });
-          navigate('/dashboard');
+          // Redirect handled by useEffect when profile loads
         }
       } else {
         const { error } = await signUp(email, password, fullName, selectedRole!);
@@ -125,7 +125,7 @@ export function AuthPage() {
             title: 'Conta criada!',
             description: 'Sua conta foi criada com sucesso. Redirecionando...',
           });
-          navigate('/dashboard');
+          // Redirect handled by useEffect when profile loads
         }
       }
     } finally {
